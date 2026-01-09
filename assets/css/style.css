@@ -159,9 +159,276 @@
   border-color: white;
 }
 
+/* Profile Icon in Topbar */
+.profile-dropdown-wrapper {
+  position: relative;
+  margin-left: 18px;
+}
+
+.profile-icon-link {
+  color: white;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 16px;
+  transition: all 0.3s;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.profile-icon-link:hover {
+  background-color: white;
+  color: #2c3e50;
+  border-color: white;
+  transform: scale(1.1);
+}
+
+.profile-icon-link:focus {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+/* Profile Dropdown Menu */
+.profile-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 15px);
+  right: 0;
+  background-color: rgb(3, 2, 2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  padding: 10px 0;
+  min-width: 200px;
+  z-index: 10000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.profile-dropdown-menu::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  right: 12px;
+  width: 16px;
+  height: 16px;
+  background: white;
+  transform: rotate(45deg);
+  box-shadow: -2px -2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.profile-dropdown-menu.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.profile-user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  border-bottom: 1px solid #e0e0e0;
+  font-family: "Heebo", sans-serif;
+  font-weight: 600;
+  color: #222;
+  font-size: 15px;
+}
+
+.profile-user-info i {
+  font-size: 20px;
+  color: #ff5757;
+}
+
+.profile-dropdown-menu a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  color: #222;
+  text-decoration: none;
+  font-family: "Heebo", sans-serif;
+  font-size: 15px;
+  transition: all 0.3s;
+  border: none;
+  width: 100%;
+  border-radius: 0;
+  background: transparent;
+}
+
+.profile-dropdown-menu a:hover {
+  background-color: #ff5757;
+  color: #ffffff;
+}
+
+.profile-dropdown-menu a i {
+  font-size: 16px;
+  width: 20px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
 .topbar {
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
+
+
+
+/* Small Laptop (1024px - 1365px) */
+@media (max-width: 1365px) and (min-width: 1024px) {
+  .topbar {
+    max-width: 65%;
+    font-size: 13px;
+    padding: 0 12px;
+  }
+  
+  .topbar .contact-info {
+    gap: 12px;
+  }
+  
+  .topbar .contact-info span {
+    font-size: 14px;
+    padding: 6px 12px;
+    gap: 6px;
+  }
+  
+  .topbar .contact-info i {
+    font-size: 13px;
+    width: 18px;
+    height: 18px;
+  }
+  
+  .topbar .social-media {
+    gap: 8px;
+    padding-right: 8px;
+  }
+  
+  .topbar .social-media a {
+    width: 30px;
+    height: 30px;
+    font-size: 13px;
+  }
+  
+  .profile-dropdown-wrapper {
+    margin-left: 6px;
+  }
+  
+  .profile-icon-link {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+}
+
+/* Hide topbar on smaller laptops and tablets */
+@media (max-width: 1199px) {
+  .topbar {
+    display: none !important;
+  }
+  
+  .navbar {
+    padding-top: 16px !important;
+  }
+  
+  .navbar-mobile {
+    display: flex;
+    align-items: center;
+    margin-right: 62px;
+  }
+  
+  .navbar-mobile i {
+    color: #dc887e;
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #dc887e;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+  }
+}
+
+/* Tablet (992px - 1023px) */
+@media (max-width: 1023px) and (min-width: 992px) {
+  .topbar {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .topbar {
+    max-width: 70%;
+    padding: 0 15px;
+    font-size: 13px;
+  }
+  
+  .topbar .contact-info span {
+    font-size: 13px;
+    padding: 6px 12px;
+    gap: 6px;
+  }
+  
+  .topbar .social-media {
+    gap: 8px;
+  }
+  
+  .topbar .social-media a,
+  .profile-icon-link {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+  
+  .profile-dropdown-menu {
+    min-width: 200px;
+  }
+}
+
+@media (max-width: 992px) {
+  .topbar {
+    display: none !important; 
+  }
+
+  .navbar-mobile {
+    display: flex;
+    align-items: center;
+    margin-right: 62px;
+  }
+  
+  .navbar-mobile i {
+    color: #dc887e;
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #dc887e;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+  }
+
+  .navbar.sticky .logo img {
+    height: 40px;
+  } 
+
+  .navbar {
+    padding: 16px 4%;
+    padding-top: 16px;
+    position: relative;
+  }
+}
+
+
 
 /* Navbar */
 .navbar {

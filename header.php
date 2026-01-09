@@ -1,5 +1,4 @@
 <?php
-
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -50,6 +49,37 @@
             <?php else: ?>
                 <a href="#"><i class="fa-brands fa-tiktok"></i></a>
             <?php endif; ?>
+           <!-- Profile Icon with Dropdown -->
+            <div class="profile-dropdown-wrapper">
+                <a href="#" class="profile-icon-link" id="profileToggle" aria-label="User Menu">
+                    <i class="fa-solid fa-user"></i>
+                </a>
+                
+                <div class="profile-dropdown-menu" id="profileDropdown">
+                    <?php if (is_user_logged_in()): 
+                        $current_user = wp_get_current_user();
+                    ?>
+                        <div class="profile-user-info">
+                            <i class="fa-solid fa-user-circle"></i>
+                            <span><?php echo esc_html($current_user->display_name); ?></span>
+                        </div>
+                        <a href="<?php echo esc_url(get_permalink(get_option('doregister_profile_page_id'))); ?>">
+                            <i class="fa-solid fa-id-card"></i> My Profile
+                        </a>
+                        <a href="<?php echo esc_url(wp_logout_url(home_url('/'))); ?>">
+                            <i class="fa-solid fa-sign-out-alt"></i> Logout
+                        </a>
+                    <?php else: ?>
+                        <a href="<?php echo esc_url(get_permalink(get_option('doregister_login_page_id'))); ?>">
+                            <i class="fa-solid fa-sign-in-alt"></i> Login
+                        </a>
+                        <a href="<?php echo esc_url(get_permalink(get_option('doregister_register_page_id'))); ?>">
+                            <i class="fa-solid fa-user-plus"></i> Register
+                        </a>
+                    <?php endif; ?>
+                </div>
+            </div>
+            
         </div>
     </div>
     

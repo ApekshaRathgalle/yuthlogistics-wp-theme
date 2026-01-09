@@ -226,3 +226,30 @@ jQuery(document).ready(function($) {
     });
   }
 });
+
+// Profile Dropdown Toggle
+document.addEventListener('DOMContentLoaded', function() {
+  const profileToggle = document.getElementById('profileToggle');
+  const profileDropdown = document.getElementById('profileDropdown');
+
+  if (profileToggle && profileDropdown) {
+    // Toggle dropdown on click
+    profileToggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      profileDropdown.classList.toggle('active');
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!profileToggle.contains(e.target) && !profileDropdown.contains(e.target)) {
+        profileDropdown.classList.remove('active');
+      }
+    });
+
+    // Prevent dropdown from closing when clicking inside it
+    profileDropdown.addEventListener('click', function(e) {
+      e.stopPropagation();
+    });
+  }
+});

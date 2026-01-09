@@ -505,4 +505,10 @@ add_action('init', function() {
 }, 1);
 
 
+add_action('init', function() {
+    update_option('doregister_login_page_id', 25); // Replace with actual Login page ID
+    update_option('doregister_register_page_id', 23); // Replace with actual Register page ID  
+    update_option('doregister_profile_page_id', 30); // Replace with actual Profile page ID
+}, 1);
+
 ?>
