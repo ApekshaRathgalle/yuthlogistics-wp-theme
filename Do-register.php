@@ -1,17 +1,9 @@
 <?php
-/**
- * Template Name: Do Register
- */
-
+/* Template Name: Registration Page */
 get_header(); ?>
 
-<div class="Do-register">
-    <?php
-    while ( have_posts() ) :
-        the_post();
-        the_content();
-    endwhile;
-    ?>
+<div class="container">
+    <?php echo do_shortcode('[doregister_form]'); ?>
 </div>
 
 <?php get_footer(); ?>

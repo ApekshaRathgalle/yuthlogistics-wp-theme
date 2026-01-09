@@ -496,4 +496,13 @@ function yuth_logistics_cf7_dynamic_services($tag) {
 }
 add_filter('wpcf7_form_tag', 'yuth_logistics_cf7_dynamic_services', 10, 1);
 
+add_action('init', function() {
+    update_option('doregister_profile_page_id', 30); // Your actual profile page ID
+}, 1);
+
+add_action('init', function() {
+    update_option('doregister_login_page_id', 25); // Your actual login page ID
+}, 1);
+
+
 ?>
